@@ -1,20 +1,14 @@
+import "babel-polyfill";
 import * as L from "leaflet";
 window.$ = require("jquery");
 import "bootstrap";
 import * as lego from "/img/lego.png";
 import * as legoIO from "/img/legoio.png";
 import * as shadow from "/img/shadow.png";
-/*
-import * as threeJSmodel from "../scripts/threeJSmodel";
-import * as radarChart from "../scripts/radarChart";
-"d3": "^3.5.6",
-"d3-svg-legend": "^2.25.6",
-"three": "^0.91.0",
-*/
 
 ////////////////////////////////////////////////////////////////////////////////////
 
-var updateInterval = 1000;
+var updateInterval = 5000;
 
 async function getCityIO(cityIOurl) {
   // GET method
@@ -161,16 +155,6 @@ function makeMap(tablesArray) {
     let tableMeta = m.properties;
     //put prj name in div
     infoDiv.innerHTML = clearNames(m.properties.url);
-
-    //init radar
-    // radarChart.radarInit();
-    // threeSetup();
-
-    async function threeSetup() {
-      $("#threeDiv").empty();
-      // init threejs
-      // threeJSmodel.threeJSmodel(cityIOjson);
-    }
 
     //stop update on modal close
     $("#modal").on("hide.bs.modal", function() {
