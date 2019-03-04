@@ -30,7 +30,8 @@ async function getCityIO(cityIOurl) {
 }
 
 function clearNames(url) {
-    return url.toString().replace("https://cityio.media.mit.edu/api/table/", ""); // todo talk to back end ,
+    // return url.toString().replace("https://cityio.media.mit.edu/api/table/", ""); // todo talk to back end ,
+    return url.toString().replace("http://127.0.0.1:8080/api/table/", ""); // todo talk to back end ,
 }
 
 ////////////////////////////////////////////////////////////////////////////////////
@@ -40,7 +41,8 @@ async function getTables() {
     infoDiv("_________________________");
 
     let tableArray = [];
-    let cityIOurl = "https://cityio.media.mit.edu/api/tables/list";  //todo talk to backend
+    // let cityIOurl = "https://cityio.media.mit.edu/api/tables/list";  //todo talk to backend
+    let cityIOurl = "http://127.0.0.1:8080/api/tables/list";  //todo talk to backend
     const tables = await getCityIO(cityIOurl);
 
     infoDiv("Reading CityIO tables");
@@ -54,7 +56,8 @@ async function getTables() {
             " tables: " +
             clearNames(tables[i]).link(tables[i]) +
             " || Remove Table".link(
-                "https://cityio.media.mit.edu/api/table/clear/" +
+                // "https://cityio.media.mit.edu/api/table/clear/" +
+                "http://127.0.0.1:8080/api/table/clear/" +
                 clearNames(tables[i])  //todo talk to backend , need to find where is the data coming from
             )
         );
