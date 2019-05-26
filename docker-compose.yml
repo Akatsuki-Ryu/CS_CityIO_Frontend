@@ -5,7 +5,15 @@ services:
     restart: always
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.debug
     ports:
       - '1234:1234'
+  frontendprod:
+    container_name: frontendprod
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    ports:
+      - '80:80'
 
